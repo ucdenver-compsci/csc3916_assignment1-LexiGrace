@@ -11,7 +11,7 @@ app.use(bodyParser.text({
 app.post('/', (req, res)=> {
     console.log(req.body)
     res = res.status(200)
-    var contentType = rew.get('Content Type');
+    var contentType = req.get('Content Type');
     if (contentType) {
         console.log("Content type: " + contentType);
         res = res.type(contentType)
@@ -19,7 +19,7 @@ app.post('/', (req, res)=> {
     res.send(req.body)
 })
 
-app.listen(process.env.PORT || 8008,);
+app.listen(process.env.PORT || 8080,);
 
 
 module.exports = app; // for testing
